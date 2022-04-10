@@ -6,7 +6,7 @@ from datetime import datetime
 @shared_task
 def up_down(symbol: str, price: float):
     client = Client()
-    last_candle = client.get_klines(symbol=symbol, interval=Client.KLINE_INTERVAL_1MINUTE)[-1]
+    last_candle = client.get_klines(symbol=symbol, interval=Client.KLINE_INTERVAL_1MINUTE, limit=1)[0]
     candle_price = float(last_candle[4])
     candle_timestamp = datetime.fromtimestamp(float(last_candle[0]) / 1000)
     if candle_price > price:
