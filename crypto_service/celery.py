@@ -14,7 +14,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crypto_service.settings')
 os.environ.setdefault('DJANGO_CONFIGURATION', 'Local')
 
 django.setup()
-app = Celery('crypto_service', broker='redis://localhost:6379', backend='mongodb://localhost:27017/')
+app = Celery('crypto_service')
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.
