@@ -7,7 +7,12 @@
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1 id="num">hello</h1>
+<textarea id="num" disabled></textarea>
+{#<button id="button">ok</button>#}
+<form>
+    {{ form.as_p }}
+    <button type="button" id="button">ok</button>
+</form>
 <script>
     var socket = new WebSocket('ws://localhost:8000/ws/some_url/')
 
@@ -16,6 +21,13 @@
         console.log(data)
         $('#num').html(data.message)
     }
+
+    $('#button').click(function () {
+        socket.send(JSON.stringify({
+            "symbol": $('#id_symbol').val(),
+            "price": $('#id_price').val(),
+        }))
+    })
 </script>
 </body>
 </html>
