@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import re_path
 
 from one_min_price.consumers import WSConsumer
 
 ws_urlpatterns = [
-    path('ws/some_url/', WSConsumer.as_asgi())
+    re_path(r'^ws/price/(?P<channel_name>[^/]+)/$', WSConsumer.as_asgi())
 ]
