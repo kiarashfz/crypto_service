@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'channels',
     'one_min_price',
     'crispy_forms',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
