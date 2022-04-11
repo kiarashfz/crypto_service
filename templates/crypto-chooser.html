@@ -51,12 +51,10 @@
                 }
 
                 socket.onopen = function () {
-                    setInterval(function () {
-                        socket.send(JSON.stringify({
-                            "symbol": $('#id_symbol').val(),
-                            "price": $('#id_price').val(),
-                        }))
-                    }, 10000)
+                    socket.send(JSON.stringify({
+                        "symbol": $('#id_symbol').val(),
+                        "price": $('#id_price').val(),
+                    }))
                 }
 
                 {#$('#button').fadeOut()#}
