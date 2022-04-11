@@ -10,6 +10,6 @@ def up_down(symbol: str, price: float):
     candle_price = float(last_candle[4])
     candle_timestamp = datetime.fromtimestamp(float(last_candle[0]) / 1000)
     if candle_price > price:
-        return f'time:{candle_timestamp} --- Up'
+        return {'timestamp': candle_timestamp, 'input_price': price, 'close_price': candle_price, 'status': 'Up'}
     else:
-        return f'time:{candle_timestamp} --- Down'
+        return {'timestamp': candle_timestamp, 'input_price': price, 'close_price': candle_price, 'status': 'Down'}
